@@ -46,7 +46,7 @@ function parseBody(event) {
 
 function requirePin(event) {
   const expected = process.env.APP_PIN;
-  if (!expected) throw new HttpError(500, 'APP_PIN is not set in the Netlify environment variables.');
+  if (!expected) return; // no PIN set = open access
   const headers = event.headers || {};
   const given = headers['x-app-pin'] || headers['X-App-Pin'] || '';
   if (given !== expected) throw new HttpError(401, 'Wrong or missing PIN.');
