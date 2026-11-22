@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HR | Mina Hany - Unlimited Care</title>
+  <link rel="icon" href="logo.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="brand-header">
+    <img src="logo.png" alt="Mina Hany - Unlimited Care" class="logo">
+    <div class="clock">
+      <span id="cairoDate"></span>
+      <strong id="cairoTime"></strong>
+      <small>Cairo time</small>
+    </div>
+  </header>
+
+  <main>
+    <!-- PIN gate -->
+    <section id="gate" class="card narrow" hidden>
+      <h1>Enter office PIN</h1>
+      <form id="gateForm" class="row">
+        <input id="pinInput" type="password" inputmode="numeric" placeholder="PIN" autocomplete="off" required>
+        <button type="submit" class="btn primary">Enter</button>
+      </form>
+      <p id="gateError" class="error" hidden></p>
+    </section>
+
+    <!-- HR tools -->
+    <section id="hr" hidden>
+      <div class="card">
+        <h2>Add employee</h2>
+        <form id="addForm" class="row">
+          <input id="newName" placeholder="Full name" maxlength="100" required>
+          <button type="submit" class="btn primary">Add</button>
+        </form>
+        <p id="hrMsg" class="message" hidden></p>
+      </div>
+
+      <div class="card">
+        <h2>Employees</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Name</th><th>Status</th><th></th></tr></thead>
+            <tbody id="empBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Export to Excel</h2>
+        <form id="exportForm" class="grid2">
+          <label>From <input type="date" id="fromDate" required></label>
+          <label>To <input type="date" id="toDate" required></label>
+          <label>Employee
+            <select id="exportEmployee"></select>
+          </label>
+          <button type="submit" class="btn primary">Download Excel (.xlsx)</button>
+        </form>
+        <p id="exportMsg" class="message" hidden></p>
+      </div>
+
+      <button id="lockBtn" class="btn link">Lock screen</button>
+    </section>
+
+    <p class="footer"><a href="index.html">Back to attendance</a></p>
+  </main>
+
+  <script src="common.js"></script>
+  <script src="hr.js"></script>
+</body>
+</html>

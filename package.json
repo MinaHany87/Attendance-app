@@ -1,0 +1,10 @@
+{
+  "name": "attendance-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Office attendance app - Mina Hany Unlimited Care",
+  "dependencies": {
+    "exceljs": "^4.4.0",
+    "pg": "^8.13.0"
+  }
+}

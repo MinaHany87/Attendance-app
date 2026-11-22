@@ -1,0 +1,143 @@
+/* Mina Hany - Unlimited Care brand palette */
+:root {
+  --forest: #173001;      /* Deep Forest Green: text, headers */
+  --leaf: #6FB100;        /* Vibrant Leaf Green: primary buttons, highlights */
+  --olive: #4B7401;       /* Olive Green: secondary buttons, borders */
+  --dark-olive: #313D03;  /* Dark Olive: shadows, depth */
+  --soft: #F4F8EC;        /* Soft Leaf White: page and banded backgrounds */
+  --white: #FFFFFF;
+  --amber-bg: #FFF1C2;    /* warning color (not part of the brand palette) */
+  --amber-text: #5A4300;
+  --radius: 12px;
+}
+
+[hidden] { display: none !important; }
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Inter, Roboto, system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: var(--soft);
+  color: var(--forest);
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+h1, h2 { font-family: Poppins, Montserrat, Inter, system-ui, sans-serif; margin: 0 0 12px; }
+h1 { font-size: 22px; }
+h2 { font-size: 18px; }
+
+/* Header: logo sits on white, per the branding rules */
+.brand-header {
+  background: var(--white);
+  border-bottom: 3px solid var(--leaf);
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.logo { height: 56px; width: auto; }
+.clock { text-align: right; font-size: 14px; color: var(--olive); }
+.clock strong { display: block; font-size: 20px; color: var(--forest); font-variant-numeric: tabular-nums; }
+
+main { max-width: 900px; margin: 0 auto; padding: 16px; }
+
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 18px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 10px rgba(49, 61, 3, 0.08);
+}
+.narrow { max-width: 420px; margin: 40px auto; }
+
+label { display: block; font-size: 14px; color: var(--olive); margin-bottom: 6px; }
+input, select {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid var(--olive);
+  border-radius: 8px;
+  font: inherit;
+  color: var(--forest);
+  background: var(--white);
+}
+input:focus, select:focus { outline: 3px solid var(--leaf); outline-offset: 1px; }
+
+.row { display: flex; gap: 10px; flex-wrap: wrap; }
+.row input { flex: 1; min-width: 180px; }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; align-items: end; }
+.actions { display: flex; gap: 12px; flex-wrap: wrap; margin: 12px 0; }
+.actions-cell { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.btn {
+  border: 2px solid transparent;
+  border-radius: var(--radius);
+  padding: 11px 18px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  min-height: 44px;
+}
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+/* Dark text on the bright green: white on #6FB100 is too low contrast */
+.btn.primary { background: var(--leaf); color: var(--forest); }
+.btn.primary:hover:not(:disabled) { background: var(--olive); color: var(--white); }
+.btn.outline { background: var(--white); color: var(--olive); border-color: var(--olive); }
+.btn.outline:hover:not(:disabled) { background: var(--soft); }
+.btn.link { background: none; color: var(--olive); text-decoration: underline; padding: 8px 4px; }
+.btn.big { flex: 1; min-width: 160px; font-size: 18px; min-height: 56px; }
+.btn.small { padding: 6px 10px; min-height: 36px; font-size: 14px; }
+
+.status { font-size: 17px; margin: 0; }
+.hint { color: var(--olive); font-size: 14px; margin: 0 0 10px; }
+.message { margin: 12px 0 0; padding: 10px 12px; border-radius: 8px; background: var(--soft); color: var(--forest); }
+.message.error, .error { color: #8a1c1c; background: #fbeaea; padding: 10px 12px; border-radius: 8px; margin-top: 10px; }
+.alert {
+  margin-top: 12px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: var(--amber-bg);
+  color: var(--amber-text);
+  border-left: 5px solid #C98A00;
+  font-weight: 600;
+}
+
+.history-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; flex-wrap: wrap; }
+.history-head label { margin: 0; }
+.history-head input { width: auto; }
+
+.widgets { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin: 14px 0; }
+.widget {
+  background: var(--soft);
+  border-top: 4px solid var(--leaf);
+  border-radius: var(--radius);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.widget .label { font-size: 13px; color: var(--olive); text-transform: uppercase; letter-spacing: 0.04em; }
+.widget strong { font-size: 26px; color: var(--forest); }
+.widget small { color: var(--olive); }
+
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 15px; }
+th, td { padding: 10px 8px; text-align: left; border-bottom: 1px solid #d9e3c4; }
+thead th { background: var(--forest); color: var(--white); font-weight: 600; }
+tbody tr:nth-child(even) { background: var(--soft); }
+td.empty { text-align: center; color: var(--olive); padding: 20px; }
+
+.badge { display: inline-block; padding: 3px 9px; border-radius: 999px; font-size: 13px; background: #e4ebd6; color: var(--forest); }
+.badge.ok { background: var(--leaf); color: var(--forest); }
+.badge.warn { background: var(--amber-bg); color: var(--amber-text); }
+
+.footer { text-align: center; font-size: 14px; }
+.footer a { color: var(--olive); }
+
+@media (max-width: 600px) {
+  .clock { text-align: left; }
+  .btn.big { min-width: 100%; }
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Attendance | Mina Hany - Unlimited Care</title>
+  <link rel="icon" href="logo.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="brand-header">
+    <img src="logo.png" alt="Mina Hany - Unlimited Care" class="logo">
+    <div class="clock">
+      <span id="cairoDate"></span>
+      <strong id="cairoTime"></strong>
+      <small>Cairo time</small>
+    </div>
+  </header>
+
+  <main>
+    <!-- PIN gate -->
+    <section id="gate" class="card narrow" hidden>
+      <h1>Enter office PIN</h1>
+      <form id="gateForm" class="row">
+        <input id="pinInput" type="password" inputmode="numeric" placeholder="PIN" autocomplete="off" required>
+        <button type="submit" class="btn primary">Enter</button>
+      </form>
+      <p id="gateError" class="error" hidden></p>
+    </section>
+
+    <!-- Attendance -->
+    <section id="app" hidden>
+      <div class="card">
+        <label for="employeeSelect">Your name</label>
+        <select id="employeeSelect"></select>
+      </div>
+
+      <div class="card">
+        <h2>Today</h2>
+        <p id="todayStatus" class="status"></p>
+        <div class="actions">
+          <button id="checkInBtn" class="btn primary big">Check in</button>
+          <button id="checkOutBtn" class="btn primary big">Check out</button>
+        </div>
+        <div id="alertBox" class="alert" hidden></div>
+        <div id="msgBox" class="message" hidden></div>
+      </div>
+
+      <div id="editCard" class="card" hidden>
+        <h2>Edit today's record</h2>
+        <p class="hint">You can correct today's times only. Past records are locked.</p>
+        <form id="editForm" class="grid2">
+          <label>Check-in <input type="time" id="editIn"></label>
+          <label>Check-out <input type="time" id="editOut"></label>
+          <button type="submit" class="btn outline">Save changes</button>
+        </form>
+      </div>
+
+      <div class="card">
+        <div class="history-head">
+          <h2>My attendance history</h2>
+          <label>Month <input type="month" id="monthInput"></label>
+        </div>
+        <div class="widgets">
+          <div class="widget">
+            <span class="label">Total hours this month (to date)</span>
+            <strong id="totalHours">-</strong>
+            <small id="totalDecimal"></small>
+          </div>
+          <div class="widget">
+            <span class="label">Total ÷ 26</span>
+            <strong id="dividedHours">-</strong>
+            <small>Total hours divided by 26</small>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Date</th><th>Check-in</th><th>Check-out</th><th>Hours</th><th>Alert</th></tr>
+            </thead>
+            <tbody id="historyBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <button id="lockBtn" class="btn link">Lock screen</button>
+    </section>
+
+    <p class="footer"><a href="hr.html">HR page</a></p>
+  </main>
+
+  <script src="common.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
