@@ -454,11 +454,13 @@ exports.handler = async (event) => {
     const method = event.httpMethod;
     const query = event.queryStringParameters || {};
 
-    if (seg0 === 'login' && method === 'POST') {
-      const body = parseBody(event);
-      if (body.pin !== process.env.APP_PIN) throw new HttpError(401, 'Wrong PIN.');
-      return reply(200, { ok: true });
-    }
+   if (seg0 === 'login' && method === 'POST') {
+  const body = parseBody(event);
+  if (process.env.APP_PIN && body.pin !== process.env.APP_PIN) {
+    throw new HttpError(401, 'Wrong PIN.');
+  }
+  return reply(200, { ok: true });
+}
 
     requirePin(event);
     const body = method === 'POST' || method === 'PATCH' ? parseBody(event) : {};
