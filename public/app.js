@@ -203,13 +203,9 @@ $('lockBtn').addEventListener('click', () => {
 (async function boot() {
   startClock();
   $('monthInput').value = cairoMonth();
-  if (localStorage.getItem(PIN_KEY)) {
-    try {
-      await openApp();
-      return;
-    } catch {
-      localStorage.removeItem(PIN_KEY);
-    }
+  try {
+    await openApp();
+  } catch {
+    showGate();
   }
-  showGate();
 })();
