@@ -137,13 +137,9 @@ $('lockBtn').addEventListener('click', () => {
 // ---------- Start ----------
 (async function boot() {
   startClock();
-  if (localStorage.getItem(PIN_KEY)) {
-    try {
-      await openHr();
-      return;
-    } catch {
-      localStorage.removeItem(PIN_KEY);
-    }
+  try {
+    await openHr();
+  } catch {
+    showGate();
   }
-  showGate();
 })();
